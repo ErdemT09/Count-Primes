@@ -12,7 +12,7 @@ public class Main
             
             for(int j = 0; j<primes.size(); j++)
             {
-                if (primes.get(j) <= Math.sqrt(i)) //  the expression (primes.get(j) <= i/2) will yield an even slower calculation
+                if (primes.get(j) < Math.sqrt(i)) //  the expression (primes.get(j) <= i/2) will yield an even slower calculation
                 {
                     if( i % primes.get(j) == 0)
                     {
