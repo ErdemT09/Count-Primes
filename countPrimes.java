@@ -6,7 +6,7 @@ public class Main
     public static int countPrimesSlow(int a)
     {
         List<Integer> primes = new LinkedList<Integer>();
-        boolean _break = false;
+        boolean _continue = false;
         for(int i = 2; i<=a; i++)
         {
             
@@ -16,14 +16,14 @@ public class Main
                 {
                     if( i % primes.get(j) == 0)
                     {
-                    _break = true;
+                    _continue = true;
                     break;
                     }
                 }
             }            
-            if(_break)
+            if(_continue)
             {
-                _break = false;
+                _continue = false;
                 continue;
             }         
             primes.add(i);
