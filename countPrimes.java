@@ -9,18 +9,16 @@ public class Main
 	if (n <= 2)
 		return 0;
  
-	// init an array to track prime numbers
+	// initialize an array to track prime numbers
 	boolean[] primes = new boolean[n];
 	for (int i = 2; i < n; i++)
 		primes[i] = true;
  
 	for (int i = 2; i <= Math.sqrt(n - 1); i++) {
-	// or for (int i = 2; i <= n-1; i++) {
+	// or for (int i = 2; i <= n-1; i++), but this is faster.
 		if (primes[i]) {
-		    
 		    // For example, by i == 3, we increment the number j by 3, and set
 		    // all multiples of 3 to be a non-prime using this.
-		    
 			for (int j = i + i; j < n; j += i)
 				primes[j] = false;
 		}
@@ -35,6 +33,7 @@ public class Main
 	return count;
 }
     public static void main(String[] args) {
-		System.out.println(countPrimes(100000));
+		System.out.println(countPrimes(100000)); //prints 9592
+	        System.out.println(countPrimes(1000)); //prints 168
 	}
 }
