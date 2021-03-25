@@ -1,11 +1,39 @@
 
 public class Main
 {
+	// https://leetcode.com/problems/count-primes/submissions/
+	
+    public static int countPrimesSlow(int a)
+    {
+        List<Integer> primes = new LinkedList<Integer>();
+        boolean _break = false;
+        for(int i = 2; i<=a; i++)
+        {
+            
+            for(int j = 0; j<primes.size(); j++)
+            {
+                if (primes.get(j) <= Math.sqrt(i)) //  the expression (primes.get(j) <= i/2) will yield an even slower calculation
+                {
+                    if( i % primes.get(j) == 0)
+                    {
+                    _break = true;
+                    break;
+                    }
+                }
+            }            
+            if(_break)
+            {
+                _break = false;
+                continue;
+            }         
+            primes.add(i);
+        }
+        return primes.size();
+    }
+	
+    public static int countPrimes(int n) {
     // https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
     // Code taken from: https://www.programcreek.com/2014/04/leetcode-count-primes-java/
-    // https://leetcode.com/problems/count-primes/submissions/
-    
-    public static int countPrimes(int n) {
 	if (n <= 2)
 		return 0;
  
